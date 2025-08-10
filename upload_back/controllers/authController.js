@@ -39,8 +39,6 @@ export default function authController(User) {
           maxAge: 7 * 24 * 60 * 60 * 1000,
         });
 
-        res.cookie("token", token, cookieOptions);
-
         const mailOptions = {
           from: process.env.SENDER_EMAIL,
           to: email,
@@ -89,8 +87,6 @@ export default function authController(User) {
           maxAge: 7 * 24 * 60 * 60 * 1000,
         });
 
-        // then
-        res.cookie("token", token, cookieOptions);
 
         return res.json({ success: true });
       } catch (e) {
