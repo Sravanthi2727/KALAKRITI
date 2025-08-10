@@ -281,7 +281,7 @@ const PORT = process.env.PORT || 5000;
 
 // index.js (CORS setup) — replace your current app.use(cors(...))
 const allowedOrigins = [
-  "http://localhost:3000",
+  "https://kalakriti-2o4v.onrender.com",
   process.env.FRONTEND_URL, // keep if defined
 ].filter(Boolean);
 
@@ -299,7 +299,6 @@ app.use(
     credentials: true,
   })
 );
-
 
 app.use(express.json());
 app.use(cookieParser());
@@ -341,7 +340,6 @@ const startServer = async () => {
         res.status(500).json({ error: "Failed to fetch artists" });
       }
     });
-  
 
     // ====== Upload Route ======
     app.post("/upload", upload.single("art"), async (req, res) => {
