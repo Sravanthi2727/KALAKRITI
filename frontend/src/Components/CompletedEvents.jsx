@@ -9,7 +9,7 @@ const CompletedEvents = () => {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/events")
+    fetch("https://kalakriti-6ov2.onrender.com/api/events")
       .then((res) => res.json())
       .then((data) => {
         const completed = data.filter((event) => event.status === "Completed");

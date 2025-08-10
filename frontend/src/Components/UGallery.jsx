@@ -4,7 +4,7 @@ const Gallery = () => {
   const [images, setImages] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/gallery")
+    fetch("https://kalakriti-6ov2.onrender.com/gallery")
       .then(res => res.json())
       .then(data => {
         setImages(data.images || []);
