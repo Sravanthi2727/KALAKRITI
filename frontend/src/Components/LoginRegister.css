@@ -1,0 +1,236 @@
+/* === Modal Overlay === */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* === Wrapper Box === */
+.wrapper {
+  position: relative;
+  width: 420px;
+  min-height: 520px;
+  background-color: #920024;
+  border-radius: 10px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 30px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  animation: slideIn 0.3s ease;
+  overflow: hidden;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === Close Button === */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* === Header Elements === */
+.wrapper img {
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.wrapper h2 {
+  font-size: 24px;
+  margin: 10px 0 4px;
+  text-align: center;
+  transition: opacity 0.3s ease;
+}
+
+.wrapper p {
+  font-size: 14px;
+  color: #ddd;
+  margin-bottom: 20px;
+  text-align: center;
+  transition: opacity 0.3s ease;
+}
+
+/* === Form Box === */
+.form-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s ease-in-out, opacity 0.4s ease; 
+}
+.wrapper.signin .form-box {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.wrapper.signup .form-box {
+  transform: translateX(-100%);
+  opacity: 0;
+  position: absolute;
+}
+
+form .input-box {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin-bottom: 1.2rem;
+}
+
+.input-box input {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 40px;
+  font-size: 16px;
+  color: white;
+  padding: 0 45px 0 20px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.input-box input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.input-box .icon {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: white;
+}
+
+/* === Forgot Password / Remember === */
+form .remember-forgot {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.forgot-link {
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.forgot-link:hover {
+  text-decoration: underline;
+}
+
+/* === Submit Button === */
+form button {
+  width: 100%;
+  height: 45px;
+  background: white;
+  border: none;
+  border-radius: 40px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #333;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease;
+}
+
+form button:hover {
+  background: #f1f1f1;
+}
+
+/* === Register Link === */
+.register-link {
+  font-size: 14.5px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.register-link span {
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.register-link span:hover {
+  text-decoration: underline;
+}
+
+/* === OTP Input Fields === */
+.otp-inputs {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.otp-inputs input {
+  width: 42px;
+  height: 50px;
+  font-size: 18px;
+  border-radius: 10px;
+  text-align: center;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  background-color: transparent;
+  color: #fff;
+}
+
+.otp-inputs input:focus {
+  border-color: #fff;
+  outline: none;
+}
+
+/* === Responsive for smaller screens === */
+@media (max-width: 480px) {
+  .wrapper {
+    width: 90%;
+    padding: 30px 20px;
+  }
+
+  .otp-inputs {
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .otp-inputs input {
+    width: 36px;
+    height: 46px;
+  }
+}

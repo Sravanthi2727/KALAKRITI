@@ -1,0 +1,126 @@
+
+   body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to bottom right, #fef9f7, #fff1e0);
+    color: #333;
+  }
+  
+  .upload-container {
+    max-width: 960px;
+    margin: 3rem auto;
+    background-color: #fff;
+    padding: 2rem 2.5rem;
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  
+  .upload-title {
+    font-size: 2.4rem;
+    margin-bottom: 0.3rem;
+    color: #3d0036;
+    font-weight: 700;
+  }
+  
+  .upload-description {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: #666;
+  }
+  
+  .upload-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+  
+  input[type="file"] {
+    display: none;
+  }
+  
+  .custom-file-label {
+    padding: 0.6rem 1.4rem;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: #444;
+    border: 1px solid #ccc;
+    transition: background 0.2s ease;
+  }
+  
+  .custom-file-label:hover {
+    background-color: #eee;
+  }
+  
+  .upload-btn {
+    background: linear-gradient(to right, #ff512f, #f09819);
+    color: white;
+    border: none;
+    padding: 0.65rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.3s ease;
+  }
+  
+  .upload-btn:hover {
+    transform: scale(1.05);
+    background: linear-gradient(to right, #e64500, #d37e00);
+  }
+  
+  .upload-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .upload-message {
+    margin-top: 0.5rem;
+    font-weight: 500;
+    color: #2e7d32;
+  }
+  
+  .upload-separator {
+    margin: 2.5rem 0 1rem;
+    border: none;
+    height: 2px;
+    background: #f1f1f1;
+  }
+  
+  .gallery-heading {
+    font-size: 1.8rem;
+    color: #222;
+    margin-bottom: 1.2rem;
+  }
+  
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.2rem;
+    padding: 0 0.5rem;
+    min-height: 100px;
+  }
+  
+  .gallery-img {
+    width: 100%;
+    border-radius: 14px;
+    object-fit: cover;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+  }
+  
+  .gallery-img:hover {
+    transform: scale(1.04);
+  }
+  
+  .empty-gallery {
+    font-style: italic;
+    color: #999;
+    margin-top: 1rem;
+  }
+  

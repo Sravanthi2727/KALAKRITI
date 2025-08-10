@@ -1,0 +1,156 @@
+
+/*----------------------------------------------------------------------------------------------------------------*/
+.gallery-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+ .section-title1 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #3E0B2C;
+  font-size: 2rem;
+  font-weight: 1000;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+  padding-top: 5px;
+  padding-bottom: 20px;
+  padding-left: 500px;
+}
+
+.section-title1::before {
+  content: '|';
+  color: #FF8B1F;
+  font-weight: bold;
+  font-size: 2.2rem;
+}
+.scroll-wrapper {
+  position: relative;
+}
+
+.scroll-arrow {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.animated-chevron {
+  animation: bounce-right 2s infinite ease-in-out;
+  color: #FF8B1F;
+  width: 30px;
+  height: 24px;
+  opacity: 1;
+}
+
+/* Animation for chevron */
+@keyframes bounce-right {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(6px); }
+}
+
+
+.category-buttons {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  scrollbar-width: none;         /* Firefox */
+  -ms-overflow-style: none;      /* IE/Edge */
+}
+.category-buttons::-webkit-scrollbar {
+  display: none;                 /* Chrome/Safari */
+}
+
+.category-btn {
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  background-color: white;
+  font-weight: bold;
+  border-radius: 20px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: black; 
+}
+
+.category-btn.active,
+.category-btn:hover {
+  background-color: orange;
+  color: white;
+  border-color: orange;
+}
+
+.masonry-grid {
+  display: flex;
+  margin-left: -1rem;
+  width: auto;
+}
+
+.masonry-grid_column {
+  padding-left: 1rem;
+  background-clip: padding-box;
+}
+
+.masonry-item {
+  margin-bottom: 1.5rem;
+}
+
+.img-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.img-wrapper img {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  display: block;
+}
+
+.img-wrapper:hover img {
+  transform: scale(1.05);
+}
+
+.download-btn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+  font-size: 0.8rem;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-weight: bold;
+}
+
+.img-wrapper:hover .download-btn {
+  opacity: 1;
+}
+
+.img-details {
+  margin-top: 0.5rem;
+}
+
+.img-name {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.img-description {
+  font-size: 0.9rem;
+  color: #555;
+}

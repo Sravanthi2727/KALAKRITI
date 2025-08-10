@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Gloock&display=swap');
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Gloock', serif;
+}
+
+.game {
+  min-height: 100vh;
+  padding: 2rem;
+  box-sizing: border-box;
+  color: #fff;
+}
+
+.title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #920024;
+  margin-bottom: 0.8rem;
+}
+p{
+    font-size: 20px;
+}
+/* Horizontal layout for board + controls */
+.main-layout-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1000px;
+  margin: 2rem auto;
+  gap: 2rem;
+}
+
+/* Game board styling */
+.board-container {
+  position: relative;
+  width: 500px;
+  height: 500px;
+}
+
+.board-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border: 4px solid #d9a441;
+  border-radius: 12px;
+}
+
+/* Player tokens */
+.player-piece {
+  position: absolute;
+  width: 5%;
+  height: 5%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: 0.8rem;
+  border: 2px solid white;
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+/* Controls section */
+.controls {
+  background-color: rgba(255, 228, 181, 0.3);
+  padding: 20px;
+  border-radius: 12px;
+  width: 400px;
+  text-align: center;
+  color: #000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.controls p {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Dice section */
+.dice-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.dice-img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 0.3rem;
+}
+
+#dice-results {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #222;
+}
+
+/* Buttons */
+.button {
+  background-color: #d9a441;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #b9852c;
+}
+
+/* Setup screen styling */
+.setup {
+  background-color: rgba(255, 228, 181, 0.5);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  width: 320px;
+  text-align: center;
+  color: #000;
+  margin: 2rem auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.setup h3 {
+  font-size: 1.3rem;
+  color: #5e412f;
+  margin-bottom: 1rem;
+}
+
+.setup ul {
+  list-style: disc;
+  padding-left: 1.2rem;
+  text-align: left;
+  color: #444;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+select {
+  padding: 0.5rem;
+  border-radius: 6px;
+  margin-top: 0.5rem;
+  font-family: 'Gloock', serif;
+}

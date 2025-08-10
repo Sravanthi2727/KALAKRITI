@@ -1,0 +1,95 @@
+/* events.css */
+
+/* General Section Styling */
+.container {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+h2 {
+  color: #3E0B2C;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+/* Card Styling */
+.card {
+  border: none;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+}
+
+.card-title {
+  color: #3E0B2C;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.card-text {
+  font-size: 0.95rem;
+  color: #444;
+}
+
+/* View More Button */
+.btn-warning {
+  background-color: #FF8B1F;
+  border: none;
+  font-weight: bold;
+}
+
+.btn-warning:hover {
+  background-color: #e67700;
+}
+
+/* ShowEvent Banner */
+.img-fluid {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Gallery images */
+.gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  object-fit: cover;
+}
+img {
+  object-fit: cover;
+}
+
+ul li {
+  margin-bottom: 8px;
+}
+/* Testimonials */
+.testimonial {
+  background-color: #f9f1e9;
+  padding: 1rem;
+  border-left: 5px solid #FF8B1F;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.testimonial strong {
+  color: #3E0B2C;
+}
+
+/* Loading message */
+.loading {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #888;
+  margin-top: 3rem;
+}

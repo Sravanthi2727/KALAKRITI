@@ -1,0 +1,188 @@
+
+/*logo*/
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px; /* or any desired height */
+  width: 100%;  
+  overflow: hidden;
+}
+.logo img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain; 
+}
+/*home page*/
+/* .content{
+  padding-top: 30px;
+  height: 300px;
+  text-align: center;
+  color: #000;
+  font-size: 20px;
+  font-weight: bold;
+   /* background-image:url(/public/BG.jpg); 
+  background-repeat: no-repeat;
+  background-size: cover; /* or contain */
+  /* background-position: center; 
+} */ 
+/* home page text*/
+/* .content {
+  background-image: url('https://images.unsplash.com/photo-1599719388770-5d6703953f2f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 2rem;
+  border-radius: 12px;
+  color: #333;
+} */
+/*.content p {
+  /*background-color: rgba(255, 255, 255, 0.75);*/
+  /* padding: 1rem;
+  border-radius: 8px;
+} */
+
+.container1{
+  background-color: #c1ae98;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.carousel-inner{
+  height:580px;
+  border: solid black 3px;
+}
+
+.carousel-img {
+  height: 580px;
+  object-fit: cover;  /* keeps aspect ratio and fills the box */
+}
+ 
+/* In your CSS file  arts-category*/
+.offcanvas-custom {
+  background-color:#E7621B; 
+}
+/*Traditional paintings*/
+.painting-card img {
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.painting-card .card-body {
+  background-color: #f9f9f9;
+  border-top: 1px solid #ddd;
+}
+/*main-content*/
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main.flex-grow-1 {
+  flex: 1;
+}
+.page-content3 {
+  min-height: calc(100vh - 160px); /* Adjust based on navbar + footer height */
+   /* padding-top: 1rem; 
+  padding-bottom: 3rem; */
+}
+
+/*Cartpage.css*/
+.modal-backdrop.show {
+  opacity: 0.5;
+}
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.card img {
+  border-radius: 8px;
+}
+
+.cart-page {
+  padding: 2rem;
+}
+
+.cart-summary {
+  background-color: #f4f4f4;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.cart-item-card {
+  display: flex;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.cart-item-image {
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 1rem;
+}
+
+.cart-item-info {
+  flex-grow: 1;
+}
+
+/*Navbar.css*/
+.navbar {
+  z-index: 10 !important;
+}
+
+.hover-orange {
+  transition: background-color 0.3s ease, color 0.3s ease;
+  padding: 6px 16px;
+  border-radius: 50px; /* Oval shape */
+  display: inline-block;
+}
+
+.hover-orange:hover,
+.hover-orange:focus,
+.dropdown-item.hover-orange:hover,
+.dropdown-item.hover-orange:focus {
+  background-color: #FF8B1F !important;
+  color: white !important;
+  border-radius: 50px; /* Oval shape on hover */
+}
+.nav-link.hover-orange {
+  margin: 0 6px;
+}
+
+/*Events page */
+.events {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 3rem 0 2rem 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #8b4513;
+  text-align: center;
+}
+
+.events::before,
+.events::after {
+  content: '';
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #d4af37, transparent);
+}
+
+/*Footer*/
+/* footer{
+  height: 100px;
+} */
