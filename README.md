@@ -1,5 +1,5 @@
 # KALAKRITI
-# our website link : https://kalakriti-2o4v.onrender.com/
+# Our website link : https://kalakriti-2o4v.onrender.com/
 <pre>🏠 Home Page
 ├── Navigation bar
 │   ├── Arts
