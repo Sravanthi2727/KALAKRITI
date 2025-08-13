@@ -13,8 +13,8 @@ const UploadArt = () => {
   useEffect(() => {
     axios
       .get("http://localhost:5000/gallery")
-      .then(res => setUploadedArts(res.data))
-      .catch(err => console.error("Error fetching gallery:", err));
+      .then((res) => setUploadedArts(res.data))
+      .catch((err) => console.error("Error fetching gallery:", err));
   }, []);
 
   const handleFileChange = (e) => {
@@ -36,11 +36,11 @@ const UploadArt = () => {
     try {
       setLoading(true);
       const res = await axios.post("http://localhost:5000/upload", formData, {
-        headers: { "Content-Type": "multipart/form-data" }
+        headers: { "Content-Type": "multipart/form-data" },
       });
 
       // ✅ Add new upload to top of gallery
-      setUploadedArts(prev => [res.data, ...prev]);
+      setUploadedArts((prev) => [res.data, ...prev]);
       setMessage("Upload successful!");
       setFile(null);
       setFileName("");
@@ -56,7 +56,8 @@ const UploadArt = () => {
     <div className="upload-container">
       <h2 className="upload-title">Upload Your Artwork</h2>
       <p className="upload-description">
-        Showcase your creativity by uploading traditional artwork to the community gallery.
+        Showcase your creativity by uploading traditional artwork to the
+        community gallery.
       </p>
 
       <div className="upload-form">
@@ -69,9 +70,7 @@ const UploadArt = () => {
           onChange={handleFileChange}
           style={{ display: "none" }}
         />
-        <span className="file-name">
-          {fileName || "No file selected"}
-        </span>
+        <span className="file-name">{fileName || "No file selected"}</span>
         <button
           className="upload-btn"
           onClick={handleUpload}
@@ -105,8 +104,3 @@ const UploadArt = () => {
 };
 
 export default UploadArt;
-
-
-
-
-

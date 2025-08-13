@@ -32,7 +32,29 @@ export default function Navbar(props) {
     }
   };
 
+  // const logout = async () => {
+  //   try {
+  //     // ✅ Inside Navbar component
+  //     const confirmUpload = window.confirm("Are you sure you want to Login?");
+  //     if (confirmUpload) {
+  //       setShowModal(true); // Show your login modal
+  //     }
+
+  //     axios.defaults.withCredentials = true;
+  //     const { data } = await axios.post(backendUrl + "/api/auth/logout");
+  //     if (data.success) {
+  //       setIsLoggedin(false);
+  //       setUserData(null);
+  //       navigate("/");
+  //     }
+  //   } catch (error) {
+  //     toast.error(error.message);
+  //   }
+  // };
   const logout = async () => {
+    const confirmLogout = window.confirm("Are you sure you want to Logout?");
+    if (!confirmLogout) return; // ❌ Stop if user cancels
+
     try {
       axios.defaults.withCredentials = true;
       const { data } = await axios.post(backendUrl + "/api/auth/logout");
@@ -45,6 +67,9 @@ export default function Navbar(props) {
       toast.error(error.message);
     }
   };
+
+  // const confirmUpload = window.confirm(`Are you sure you want to Login?`);
+  // if (!confirmUpload) return;
 
   return (
     <>
@@ -240,7 +265,17 @@ export default function Navbar(props) {
         </li>
       )} */}
                   <li>
-                    <button className="dropdown-item" onClick={logout}>
+                    <button
+                      className="dropdown-item"
+                      onClick={logout}
+                      style={{ transition: "background-color 0.2s" }}
+                      onMouseEnter={(e) =>
+                        (e.target.style.backgroundColor = "#ff9d2f")
+                      }
+                      onMouseLeave={(e) =>
+                        (e.target.style.backgroundColor = "")
+                      }
+                    >
                       Logout
                     </button>
                   </li>
