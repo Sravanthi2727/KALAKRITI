@@ -220,7 +220,7 @@ export default function FolkDances() {
         </div>
 
         <section className="folk-section">
-          <h2 className="section-title">Folk Dances of India</h2>
+          <h2 className="section-title">Dances of India</h2>
           <div className="slider-box">
             <Slider {...sliderSettings}>
               {folkDances.map((dance) => (
