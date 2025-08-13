@@ -19,7 +19,7 @@ const Artists = () => {
   const { addToWishlist, wishlistItems } = useWishlist();
 
   useEffect(() => {
-    fetch("https://kalakriti-6ov2.onrender.com/api/artist")
+    fetch("http://localhost:5000/api/artist")
       .then((res) => res.json())
       .then((data) => setArtists(data))
       .catch((err) => console.error("❌ Fetch error:", err));
@@ -144,7 +144,7 @@ const Artists = () => {
                       />
                       <div className="artwork-info">
                         <h6>{art.name}</h6>
-                        <p>₹{Number(art.price).toLocaleString("en-IN")}</p>
+                        {/* <p>₹{Number(art.price).toLocaleString("en-IN")}</p>
                         <div className="artwork-actions">
                           <button
                             className="add-to-cart-btn"
@@ -157,8 +157,8 @@ const Artists = () => {
                             onClick={() => handleAddToWishlist(art)}
                           >
                             ❤️ Wishlist
-                          </button>
-                        </div>
+                          </button> */}
+                        {/* </div> */}
                       </div>
                     </div>
                   );

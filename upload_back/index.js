@@ -32,7 +32,7 @@ const PORT = process.env.PORT || 5000;
 
 // index.js (CORS setup) — replace your current app.use(cors(...))
 const allowedOrigins = [
-  "https://kalakriti-2o4v.onrender.com",
+  "http://localhost:3000",
   process.env.FRONTEND_URL, // keep if defined
 ].filter(Boolean);
 

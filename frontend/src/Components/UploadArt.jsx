@@ -12,7 +12,7 @@ const UploadArt = () => {
   // ✅ Fetch gallery from DB on page load
   useEffect(() => {
     axios
-      .get("https://kalakriti-6ov2.onrender.com/gallery")
+      .get("http://localhost:5000/gallery")
       .then(res => setUploadedArts(res.data))
       .catch(err => console.error("Error fetching gallery:", err));
   }, []);
@@ -35,7 +35,7 @@ const UploadArt = () => {
 
     try {
       setLoading(true);
-      const res = await axios.post("https://kalakriti-6ov2.onrender.com/upload", formData, {
+      const res = await axios.post("http://localhost:5000/upload", formData, {
         headers: { "Content-Type": "multipart/form-data" }
       });
 

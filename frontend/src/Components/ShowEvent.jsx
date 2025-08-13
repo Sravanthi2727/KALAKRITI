@@ -15,7 +15,7 @@ const ShowEvent = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(`https://kalakriti-6ov2.onrender.com/api/events/${id}`)
+    fetch(`http://localhost:5000/api/events/${id}`)
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch event data.");
         return res.json();
@@ -136,15 +136,21 @@ const ShowEvent = () => {
           </div>
         )}
 
-        
-          <div className="text-center mt-4">
+        {(event.status === "Upcoming")?(<div className="text-center mt-4">
             <button
               className="btn btn-warning"
               onClick={() => toast.success(" Registered successfully!")}
             >
               Register Here
             </button>
-          </div>
+          </div>):(<div className="text-center mt-4">
+            <button
+              className="btn btn-warning"
+            >
+              Completed
+            </button>
+          </div>)}
+          
 
       
       </div>
