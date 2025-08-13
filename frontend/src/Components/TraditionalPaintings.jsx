@@ -140,6 +140,14 @@ export default function TraditionalPaintings() {
     }
   };
 
+  const handleWishlistClick = (art) => {
+    if (userData.isAccountVerified) {
+      toggleWishlist(art);
+    } else {
+      alert("Please verify your Email to add items to wishlist.");
+    }
+  };
+
   const sortedPaintings = [...paintings];
   if (sortOption === "price-asc")
     sortedPaintings.sort((a, b) => a.price - b.price);
@@ -147,11 +155,11 @@ export default function TraditionalPaintings() {
     sortedPaintings.sort((a, b) => b.price - a.price);
 
   const handleCartClick = (art) => {
-    if (userData) {
+    if (userData.isAccountVerified) {
       console.log(userData._id);
       handleAddToCart(art);
     } else {
-      alert("Please login to add items to your cart.");
+      alert("Please verify your Email to add items in cart.");
     }
   };
 
@@ -216,7 +224,7 @@ export default function TraditionalPaintings() {
 
                 <FontAwesomeIcon
                   icon={isWishlisted ? solidHeart : regularHeart}
-                  onClick={() => toggleWishlist(art)}
+                  onClick={() => handleWishlistClick(art)}
                   className={`wishlist-icon ${
                     clickedId === art.id ? "clicked" : ""
                   }`}

@@ -257,13 +257,16 @@ export default function Navbar(props) {
                   <b>{userData.name?.charAt(0).toUpperCase() || "U"}</b>
                 </button>
                 <ul className="dropdown-menu dropdown-menu-end">
-                  {/* {!userData.isAccountVerified && (
-        <li>
-          <button className="dropdown-item" onClick={sendVerificationOtp}>
-            Verify Email
-          </button>
-        </li>
-      )} */}
+                  {!userData.isAccountVerified && (
+                    <li>
+                      <button
+                        className="dropdown-item"
+                        onClick={sendVerificationOtp}
+                      >
+                        Verify Email
+                      </button>
+                    </li>
+                  )}
                   <li>
                     <button
                       className="dropdown-item"

@@ -1,21 +1,28 @@
 import mongoose from "mongoose";
-//import { remoteConnection } from "../config/remoteMongo.js";
 
 const userSchema = new mongoose.Schema({
   name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
+
   verifyOtp: { type: String, default: "" },
   verifyOtpExpireAt: { type: Number, default: 0 },
   isAccountVerified: { type: Boolean, default: false },
+
   resetOtp: { type: String, default: "" },
   resetOtpExpireAt: { type: Number, default: 0 },
-  cart: { type: Array, default: [] },
-  wishlist: { type: Array, default: [] },
-  upload: { type: Array, default: "" },
-  events: { type: Array, default: "" },
+
+  // Persisted user data
+  cart: { type: [mongoose.Schema.Types.Mixed], default: [] },
+  wishlist: { type: [mongoose.Schema.Types.Mixed], default: [] },
+  upload: { type: [mongoose.Schema.Types.Mixed], default: [] },
+
+  // Event registrations (store Event _id)
+  events: { type: [mongoose.Schema.Types.ObjectId], ref: "Event", default: [] },
+
+  // Order history
+  orders: { type: [mongoose.Schema.Types.Mixed], default: [] },
 });
 
-// export default userSchema;
 const User = mongoose.model("User", userSchema);
 export default User;

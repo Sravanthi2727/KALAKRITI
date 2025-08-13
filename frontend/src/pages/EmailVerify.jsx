@@ -11,19 +11,19 @@ const EmailVerify = () => {
   const navigate = useNavigate();
   const inputRefs = React.useRef([]);
 
-  //to move cursor automatically after enetering digits in OTP
-//   const handleInput = (e, index) => {
-//     if (e.target.value.length > 0 && index < inputRefs.current.length - 1) {
-//       inputRefs.current[index + 1].focus();
-//     }
-//   };
-// const handleInputChange = (e, index) => {
-//   const value = e.target.value.replace(/\D/g, "");
-//   e.target.value = value;
-//   if (value && index < inputRefs.current.length - 1) {
-//     inputRefs.current[index + 1].focus();
-//   }
-// };
+  // to move cursor automatically after enetering digits in OTP
+  const handleInput = (e, index) => {
+    if (e.target.value.length > 0 && index < inputRefs.current.length - 1) {
+      inputRefs.current[index + 1].focus();
+    }
+  };
+const handleInputChange = (e, index) => {
+  const value = e.target.value.replace(/\D/g, "");
+  e.target.value = value;
+  if (value && index < inputRefs.current.length - 1) {
+    inputRefs.current[index + 1].focus();
+  }
+};
 
   //to delete digits for backspace
   const handleKeyDown = (e, index) => {
@@ -81,7 +81,7 @@ const EmailVerify = () => {
         <p>Enter the 6-digit code sent to your Email Id</p>
         <div>
           {/* 6input fields to enter OTP */}
-          {/* {Array(6)
+          {Array(6)
             .fill(0)
             .map((_, index) => (
               <input
@@ -94,8 +94,8 @@ const EmailVerify = () => {
                 onPaste={handlePaste}
                 required
               />
-            ))} */}
-            {Array(6)
+            ))}
+            {/* {Array(6)
   .fill(0)
   .map((_, index) => (
     <input
@@ -108,7 +108,7 @@ const EmailVerify = () => {
       onPaste={handlePaste}
       required
     />
-))}
+))} */}
 
         </div>
         <button type="submit">Verify Email</button>

@@ -109,81 +109,69 @@ export default function authController(User) {
       }
     },
 
-    // Send Verification OTP
-    sendVerifyOtp: async (req, res) => {
-      try {
-        const { userId } = req.body;
-        const user = await User.findById(userId);
+   // Send Verification OTP
+sendVerifyOtp: async (req, res) => {
+  try {
+    const userId = req.userId;
+    const user = await User.findById(userId);
 
-        if (user.isAccountVerified) {
-          return res.json({
-            success: false,
-            message: "Account Already Verified",
-          });
-        }
+    if (user.isAccountVerified) {
+      return res.json({ success: false, message: "Account Already Verified" });
+    }
 
-        const otp = String(Math.floor(100000 + Math.random() * 900000));
+    const otp = String(Math.floor(100000 + Math.random() * 900000));
+    user.verifyOtp = otp;
+    user.verifyOtpExpireAt = Date.now() + 24 * 60 * 60 * 1000;
+    await user.save();
 
-        user.verifyOtp = otp;
-        user.verifyOtpExpireAt = Date.now() + 24 * 60 * 60 * 1000;
-        await user.save();
+    const mailOption = {
+      from: process.env.SENDER_EMAIL,
+      to: user.email,
+      subject: "Account Verification OTP",
+      html: EMAIL_VERIFY_TEMPLATE.replace("{{otp}}", otp).replace("{{email}}", user.email),
+    };
 
-        const mailOption = {
-          from: process.env.SENDER_EMAIL,
-          to: user.email,
-          subject: "Account Verification OTP",
-          html: EMAIL_VERIFY_TEMPLATE.replace("{{otp}}", otp).replace(
-            "{{email}}",
-            user.email
-          ),
-        };
+    await transporter.sendMail(mailOption);
 
-        await transporter.sendMail(mailOption);
+    return res.json({ success: true, message: "Verification OTP sent on Email" });
+  } catch (e) {
+    return res.json({ success: false, message: e.message });
+  }
+},
 
-        return res.json({
-          success: true,
-          message: "Verification OTP sent on Email",
-        });
-      } catch (e) {
-        return res.json({ success: false, message: e.message });
-      }
-    },
+// Verify Email
+verifyEmail: async (req, res) => {
+  const { otp } = req.body;
 
-    // Verify Email
-    verifyEmail: async (req, res) => {
-      const { userId, otp } = req.body;
+  if (!otp) {
+    return res.json({ success: false, message: "Missing Details" });
+  }
 
-      if (!userId || !otp) {
-        return res.json({ success: false, message: "Missing Details" });
-      }
+  try {
+    const userId = req.userId;
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.json({ success: false, message: "User not found" });
+    }
 
-      try {
-        const user = await User.findById(userId);
-        if (!user) {
-          return res.json({ success: false, message: "User not found" });
-        }
+    if (user.verifyOtp === "" || user.verifyOtp !== otp) {
+      return res.json({ success: false, message: "Invalid OTP" });
+    }
 
-        if (user.verifyOtp === "" || user.verifyOtp !== otp) {
-          return res.json({ success: false, message: "Invalid OTP" });
-        }
+    if (user.verifyOtpExpireAt < Date.now()) {
+      return res.json({ success: false, message: "OTP Expired" });
+    }
 
-        if (user.verifyOtpExpireAt < Date.now()) {
-          return res.json({ success: false, message: "OTP Expired" });
-        }
+    user.isAccountVerified = true;
+    user.verifyOtp = "";
+    user.verifyOtpExpireAt = 0;
 
-        user.isAccountVerified = true;
-        user.verifyOtp = "";
-        user.verifyOtpExpireAt = 0;
-
-        await user.save();
-        return res.json({
-          success: true,
-          message: "Email verified successfully",
-        });
-      } catch (e) {
-        return res.json({ success: false, message: e.message });
-      }
-    },
+    await user.save();
+    return res.json({ success: true, message: "Email verified successfully" });
+  } catch (e) {
+    return res.json({ success: false, message: e.message });
+  }
+},
 
     // Is Authenticated
     isAuthenticated: async (req, res) => {

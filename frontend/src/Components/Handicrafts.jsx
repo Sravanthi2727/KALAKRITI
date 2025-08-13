@@ -195,10 +195,10 @@ export default function Handicrafts() {
   };
 
   const handleCartClick = (art) => {
-    if (userData) {
+    if (userData.isAccountVerified) {
       handleAddToCart(art);
     } else {
-      alert("Please login to add items to your cart.");
+      alert("Please verify your Email to add items in cart.");
     }
   };
 
@@ -214,11 +214,11 @@ export default function Handicrafts() {
   };
 
   const handleWishClick = (art) => {
-    if (userData) {
+    if (userData.isAccountVerified) {
       console.log(userData._id);
       toggleWishlist(art);
     } else {
-      alert("Please login to add items to your Wishlist.");
+      alert("Please verify your Email to add items in Wishlist.");
     }
   };
 
