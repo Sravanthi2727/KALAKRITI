@@ -261,7 +261,7 @@ export default function FolkDances() {
         </section>
 
         <section className="glimpses-section">
-          <h3 className="section-title">Glimpses of Indian Folk Dances</h3>
+          <h3 className="section-title">Glimpses of Indian Dances</h3>
           <div className="slider-box">
             <Slider {...sliderSettings}>
               {glimpseImages.map((img, i) => (

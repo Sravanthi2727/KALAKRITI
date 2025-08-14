@@ -125,7 +125,7 @@ export default function Navbar(props) {
                       className="dropdown-item hover-orange"
                       to="/arts/dances"
                     >
-                      Folk Dances
+                      Famous Dances
                     </Link>
                   </li>
                   <li>
